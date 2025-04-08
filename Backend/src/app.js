@@ -18,6 +18,10 @@ app.use(cookieParser());
 
 //healthcheck router
 import { healthCheckRouter } from "./Route/healthCheck.route.js";
-app.use('/quickchat/api/v1/healthcheck',healthCheckRouter)
+app.use('/quickchat/api/v1/healthcheck',healthCheckRouter);
+
+//user router
+import {userRoute} from "./Route/user.route.js";
+app.use('/quickchat/api/v1/user',userRoute);
 
 export {app}

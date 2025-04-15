@@ -21,7 +21,7 @@ const register = asyncHandler(async (req, res) => {
     throw new apiError(500, "User Already Exists");
   }
 
-  const profilePic = req.files?.profilePic[0]?.path;
+  const profilePic = req.file?.path;
 
   if (!profilePic) {
     throw new apiError(500, "Profile Picture not Uploaded");
@@ -318,7 +318,7 @@ const userChannelProfile = asyncHandler(async (req, res) => {
     {
       $addFields: {
         subscribers: { $size: "$followers" },
-        subscribed: { $size: "$folllowing" },
+        subscribed: { $size: "$following" },
         issubscribed: {
           $cond: {
             if: { $in: [req.user._id, "$followers.follower"] },

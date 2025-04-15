@@ -24,4 +24,8 @@ app.use('/quickchat/api/v1/healthcheck',healthCheckRouter);
 import {userRoute} from "./Route/user.route.js";
 app.use('/quickchat/api/v1/user',userRoute);
 
+//room router
+import {roomRoute} from "./Route/room.route.js";
+app.use('/quickchat/api/v1/room',roomRoute);
+
 export {app}
